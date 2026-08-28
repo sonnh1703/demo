@@ -3,6 +3,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { CompanySwitcher } from './company-switcher';
 import { Button } from '../ui/button';
 import { useAppStore } from '../../store/app-store';
+import { AssistantWidget } from '../assistant/assistant-widget';
 
 const navItems = [
   { to: '/', label: 'Tổng quan', icon: LayoutDashboard, end: true },
@@ -41,6 +42,7 @@ export function AppLayout() {
         </header>
         <Outlet />
       </main>
+      <AssistantWidget />
     </div>
   );
 }

@@ -41,3 +41,33 @@ header { height:72px; background:rgba(255,255,255,.91); border-bottom:1px solid 
 .date-picker-trigger{display:flex;align-items:center;line-height:1}.date-display{display:block;line-height:1}
 .actions-column{width:92px;min-width:92px;text-align:center}.row-actions{display:flex;align-items:center;justify-content:center;gap:5px}.row-actions button{width:30px;height:30px;border:0;border-radius:7px;background:#f0f4f1;color:#486057;display:grid;place-items:center}.row-actions button:hover{background:#e1ebe5;color:#214d3c}.row-actions button.danger{background:#fff3f0;color:#b25c4b}.row-actions button.danger:hover{background:#ffe5df;color:#943e2f}.modal-overlay{position:fixed;inset:0;z-index:100;background:#0b181366;backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:16px;overflow-y:auto}.entity-modal{width:min(620px,100%);max-height:calc(100vh - 32px);overflow-y:auto;background:#fff;border:1px solid #dce4df;border-radius:15px;box-shadow:0 24px 70px #07110d40;animation:modal-in .16s ease-out}.entity-modal.modal-compact{width:min(440px,100%)}@keyframes modal-in{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}.modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:20px 22px 17px;border-bottom:1px solid #e8ece9}.modal-header h2{margin:0;color:#1f3229;font-size:20px;letter-spacing:-.3px}.modal-header p{margin:6px 0 0;color:#7d8b84;font-size:11px}.modal-header>button{width:32px;height:32px;flex:0 0 auto;border:0;border-radius:8px;background:#f2f5f3;color:#66766e;display:grid;place-items:center}.modal-header>button:hover{background:#e7ede9;color:#2c4439}.modal-form{padding:20px 22px 22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-field{display:grid;gap:7px;min-width:0}.form-field>span{font-size:11px;font-weight:700;color:#53635b}.form-field input,.form-field select{width:100%;height:39px;border:1px solid #dbe3de;border-radius:8px;background:#fbfcfb;color:#26372f;padding:0 11px;outline:0;font-size:12px}.form-field input:focus,.form-field select:focus{border-color:#62a184;box-shadow:0 0 0 3px #dcefe6}.form-field input[readonly]{background:#f2f5f3;color:#7b8882}.form-span-2{grid-column:1/-1}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid #edf0ee}.button-danger{background:#b64f3d;color:#fff}.button-danger:hover{background:#963c2d}.delete-confirm{padding:18px 22px 22px}.delete-confirm>p{margin:0;color:#596861;font-size:12px;line-height:1.6}.delete-confirm>p strong{color:#283a31}.delete-confirm .modal-actions{margin-top:18px}
 @media(max-width:600px){.entity-modal{max-height:calc(100vh - 20px)}.modal-header{padding:17px}.modal-form{padding:17px}.form-grid{grid-template-columns:1fr}.form-span-2{grid-column:auto}.modal-actions{flex-direction:column-reverse}.modal-actions .button{width:100%}}
+
+/* Trợ lý hướng dẫn sử dụng (assistant-widget.tsx) */
+.assistant-launcher{position:fixed;right:24px;bottom:24px;z-index:90;width:60px;height:60px;border-radius:50%;border:0;background:#173f32;color:#fff;display:grid;place-items:center;box-shadow:0 10px 26px #173f324d;transition:.15s ease}
+.assistant-launcher:hover{background:#215441;transform:translateY(-2px)}
+.assistant-panel{position:fixed;right:24px;bottom:96px;z-index:90;width:368px;max-width:calc(100vw - 32px);max-height:min(600px,calc(100vh - 130px));display:flex;flex-direction:column;background:#fff;border:1px solid #dce4df;border-radius:16px;box-shadow:0 24px 60px #07110d33;overflow:hidden;animation:modal-in .16s ease-out}
+.assistant-panel-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 16px 14px;background:#173f32;color:#fff;flex:0 0 auto}
+.assistant-panel-header strong{display:block;font-size:13px}
+.assistant-panel-header span{display:block;font-size:10px;color:#bcd9cc;margin-top:2px}
+.assistant-panel-header>button{width:28px;height:28px;border:0;border-radius:8px;background:#ffffff1f;color:#fff;display:grid;place-items:center;flex:0 0 auto}
+.assistant-panel-header>button:hover{background:#ffffff33}
+.assistant-messages{flex:1;min-height:180px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#f7f9f7}
+.assistant-empty{color:#54635c;font-size:12px;line-height:1.6}
+.assistant-empty p{margin:0 0 12px}
+.assistant-quick-questions{display:flex;flex-wrap:wrap;gap:7px}
+.assistant-quick-questions button{border:1px solid #d2eadd;background:#eaf6ef;color:#215441;border-radius:99px;padding:7px 11px;font-size:11px;font-weight:600;text-align:left}
+.assistant-quick-questions button:hover{background:#dcf0e5}
+.assistant-bubble{max-width:88%;padding:10px 12px;border-radius:12px;font-size:12px;line-height:1.55}
+.assistant-bubble p{margin:0;white-space:pre-wrap}
+.assistant-bubble-user{align-self:flex-end;background:#173f32;color:#fff;border-bottom-right-radius:3px}
+.assistant-bubble-bot{align-self:flex-start;background:#fff;color:#28372f;border:1px solid #e6ebe7;border-bottom-left-radius:3px}
+.assistant-nav-buttons{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.assistant-nav-buttons button{border:1px solid #b9dcc9;background:#fff;color:#1c4a3a;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700}
+.assistant-nav-buttons button:hover{background:#eaf6ef}
+.assistant-input-bar{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:12px;border-top:1px solid #e8ece9;background:#fff}
+.assistant-input-bar input{flex:1;min-width:0;height:38px;border:1px solid #dbe3de;border-radius:9px;background:#fbfcfb;padding:0 12px;font-size:12px;color:#26372f;outline:0}
+.assistant-input-bar input:focus{border-color:#62a184;box-shadow:0 0 0 3px #dcefe6}
+.assistant-input-bar button{width:38px;height:38px;flex:0 0 auto;border:0;border-radius:9px;background:#173f32;color:#fff;display:grid;place-items:center}
+.assistant-input-bar button:hover:not(:disabled){background:#215441}
+.assistant-input-bar button:disabled{opacity:.5;cursor:default}
+@media(max-width:600px){.assistant-launcher{right:16px;bottom:16px}.assistant-panel{right:16px;left:16px;bottom:88px;width:auto;max-width:none;max-height:min(520px,calc(100vh - 116px))}}
