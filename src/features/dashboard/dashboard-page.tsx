@@ -1,12 +1,12 @@
 import { AlertTriangle, ArrowDownRight, ArrowUpRight, Boxes, ChevronDown, CircleCheck, Factory, Landmark, PackageCheck, ShoppingCart, TrendingUp, Users } from 'lucide-react';
-import { companies, getCompany, getStockStatus } from '../lib/data';
-import { formatCurrency } from '../lib/utils';
-import { useAppStore } from '../store/app-store';
-import { useWorkspaceData } from '../hooks/use-workspace-data';
-import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
-import { CompanyPill } from '../components/company-pill';
-import { PageHeader } from '../components/page-header';
+import { companies, getCompany, getStockStatus } from '../../lib/data';
+import { formatCurrency } from '../../lib/utils';
+import { useAppStore } from '../../store/app-store';
+import { useWorkspaceData } from '../../hooks/use-workspace-data';
+import { Button } from '../../components/ui/button';
+import { Badge } from '../../components/ui/badge';
+import { CompanyPill } from '../../components/shared/company-pill';
+import { PageHeader } from '../../components/shared/page-header';
 
 const chartValues: Record<string, number[]> = {
   all: [4.2, 4.9, 4.6, 6.3, 7.1, 8.4],

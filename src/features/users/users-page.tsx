@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react';
 import { ChevronDown, Filter, Pencil, Plus, Search, Trash2 } from 'lucide-react';
-import { CompanyPill } from '../components/company-pill';
-import { EntityModal } from '../components/entity-modal';
-import { PageHeader } from '../components/page-header';
-import { TableState } from '../components/table-state';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
-import { useWorkspaceData } from '../hooks/use-workspace-data';
-import { companies, type EnterpriseUser, type UserStatus } from '../lib/data';
-import { useAppStore } from '../store/app-store';
+import { CompanyPill } from '../../components/shared/company-pill';
+import { EntityModal } from '../../components/shared/entity-modal';
+import { PageHeader } from '../../components/shared/page-header';
+import { TableState } from '../../components/shared/table-state';
+import { Badge } from '../../components/ui/badge';
+import { Button } from '../../components/ui/button';
+import { useWorkspaceData } from '../../hooks/use-workspace-data';
+import { companies, type EnterpriseUser, type UserStatus } from '../../lib/data';
+import { useAppStore } from '../../store/app-store';
 
 const roles = ['Tất cả vai trò', 'Quản lý công ty', 'Kế toán', 'Quản lý kho', 'Nhân viên bán hàng'];
 const formRoles = roles.slice(1);

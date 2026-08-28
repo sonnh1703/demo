@@ -1,8 +1,8 @@
 import { Bell, Boxes, LayoutDashboard, Menu, Search, Settings, ShoppingCart, Users, X } from 'lucide-react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { CompanySwitcher } from './company-switcher';
-import { Button } from './ui/button';
-import { useAppStore } from '../store/app-store';
+import { Button } from '../ui/button';
+import { useAppStore } from '../../store/app-store';
 
 const navItems = [
   { to: '/', label: 'Tổng quan', icon: LayoutDashboard, end: true },

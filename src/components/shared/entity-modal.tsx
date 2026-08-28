@@ -1,14 +1,14 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 import { X } from 'lucide-react';
 
-type EntityModalProps = {
+interface EntityModalProps {
   open: boolean;
   title: string;
   description?: string;
   onClose: () => void;
   children: ReactNode;
   compact?: boolean;
-};
+}
 
 export function EntityModal({ open, title, description, onClose, children, compact = false }: EntityModalProps) {
   const titleId = useId();

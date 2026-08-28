@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react';
 import { ChevronDown, Download, Filter, Pencil, Plus, Search, Trash2 } from 'lucide-react';
-import { CompanyPill } from '../components/company-pill';
-import { EntityModal } from '../components/entity-modal';
-import { PageHeader } from '../components/page-header';
-import { TableState } from '../components/table-state';
-import { Button } from '../components/ui/button';
-import { useWorkspaceData } from '../hooks/use-workspace-data';
-import { companies, getStockStatus, type InventoryItem } from '../lib/data';
-import { formatCurrency } from '../lib/utils';
-import { useAppStore } from '../store/app-store';
+import { CompanyPill } from '../../components/shared/company-pill';
+import { EntityModal } from '../../components/shared/entity-modal';
+import { PageHeader } from '../../components/shared/page-header';
+import { TableState } from '../../components/shared/table-state';
+import { Button } from '../../components/ui/button';
+import { useWorkspaceData } from '../../hooks/use-workspace-data';
+import { companies, getStockStatus, type InventoryItem } from '../../lib/data';
+import { formatCurrency } from '../../lib/utils';
+import { useAppStore } from '../../store/app-store';
 
 const availabilityOptions = ['Tất cả', 'Còn hàng', 'Hết hàng'] as const;
 const createInventoryItem = (companyId: string): InventoryItem => ({

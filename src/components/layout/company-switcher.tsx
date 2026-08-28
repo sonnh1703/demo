@@ -1,7 +1,7 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Building2, Check, ChevronDown } from 'lucide-react';
-import { companies, getCompany } from '../lib/data';
-import { useAppStore } from '../store/app-store';
+import { companies, getCompany } from '../../lib/data';
+import { useAppStore } from '../../store/app-store';
 
 export function CompanySwitcher() {
   const companyId = useAppStore((state) => state.companyId);

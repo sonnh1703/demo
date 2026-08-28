@@ -1,4 +1,4 @@
-import { getCompany } from '../lib/data';
+import { getCompany } from '../../lib/data';
 
 export function CompanyPill({ companyId }: { companyId: string }) {
   const company = getCompany(companyId);

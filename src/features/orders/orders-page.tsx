@@ -1,15 +1,15 @@
 import { useMemo, useRef, useState } from 'react';
 import { ChevronDown, Download, Filter, Pencil, Plus, Search, Trash2, X } from 'lucide-react';
-import { CompanyPill } from '../components/company-pill';
-import { EntityModal } from '../components/entity-modal';
-import { PageHeader } from '../components/page-header';
-import { TableState } from '../components/table-state';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
-import { useWorkspaceData } from '../hooks/use-workspace-data';
-import { companies, type Order, type OrderStatus } from '../lib/data';
-import { formatCurrency, formatDate } from '../lib/utils';
-import { useAppStore } from '../store/app-store';
+import { CompanyPill } from '../../components/shared/company-pill';
+import { EntityModal } from '../../components/shared/entity-modal';
+import { PageHeader } from '../../components/shared/page-header';
+import { TableState } from '../../components/shared/table-state';
+import { Badge } from '../../components/ui/badge';
+import { Button } from '../../components/ui/button';
+import { useWorkspaceData } from '../../hooks/use-workspace-data';
+import { companies, type Order, type OrderStatus } from '../../lib/data';
+import { formatCurrency, formatDate } from '../../lib/utils';
+import { useAppStore } from '../../store/app-store';
 
 const statuses: Array<'Tất cả' | OrderStatus> = ['Tất cả', 'Chờ duyệt', 'Đã xác nhận', 'Đang xử lý', 'Đã giao'];
 const orderStatuses = statuses.slice(1) as OrderStatus[];
