@@ -1,4 +1,4 @@
-import { FEATURE_MAP, GLOBAL_NOTES } from './feature-map';
+import { FEATURE_MAP, GLOBAL_NOTES } from './feature-map.js';
 
 const ASSISTANT_NAME = 'Trợ lý hướng dẫn sử dụng Nexora Admin';
 

@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { buildSystemPrompt } from '../src/lib/assistant/system-prompt';
+import { buildSystemPrompt } from '../src/lib/assistant/system-prompt.js';
 
 // Proxy phía server cho trợ lý AI hướng dẫn sử dụng.
 //
