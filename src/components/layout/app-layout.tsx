@@ -33,7 +33,7 @@ export function AppLayout() {
           <a href="#settings"><Settings size={18} /><span>Cài đặt</span></a>
         </nav>
         <div className="help-card"><strong>Cần hỗ trợ?</strong><span>Trung tâm trợ giúp Quản lý</span><button>Tìm hiểu thêm</button></div>
-        <div className="profile"><div className="avatar">DT</div><div><strong>Đặng Trịnh</strong><span>Quản trị viên hệ thống</span></div><button aria-label="Mở tài khoản">•••</button></div>
+        <div className="profile"><div className="avatar">DT</div><div><strong>Phạm Ngọc Thức</strong><span>Quản trị viên hệ thống</span></div><button aria-label="Mở tài khoản">•••</button></div>
       </aside>
       <main>
         <header>
