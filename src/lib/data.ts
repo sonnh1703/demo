@@ -1,9 +1,28 @@
 export type Company = { id: string; name: string; shortName: string; color: string };
 export type OrderStatus = 'Đã xác nhận' | 'Đang xử lý' | 'Chờ duyệt' | 'Đã giao';
+export type ShippingStatus = 'Chưa giao' | 'Đang giao' | 'Đã giao' | 'Giao thất bại' | 'Hoàn hàng';
+export type OrderSource = 'Website' | 'Điện thoại' | 'Sàn TMĐT' | 'Đại lý' | 'Facebook/Zalo';
 export type StockStatus = 'Đủ hàng' | 'Sắp hết' | 'Hết hàng';
 export type UserStatus = 'Đang hoạt động' | 'Tạm khóa';
 
-export type Order = { id: string; companyId: string; product: string; customer: string; amount: number; status: OrderStatus; date: string; items: number };
+export type Order = {
+  id: string;
+  companyId: string;
+  product: string;
+  customer: string;
+  phone: string;
+  source: OrderSource;
+  items: number;
+  subtotal: number;
+  discount: number;
+  returned: number;
+  shippingFee: number;
+  status: OrderStatus;
+  shippingStatus: ShippingStatus;
+  warehouse: string;
+  affiliate: string;
+  date: string;
+};
 export type InventoryItem = { sku: string; name: string; companyId: string; warehouse: string; stock: number; minimum: number; unit: string; value: number };
 export type EnterpriseUser = { id: string; name: string; email: string; companyId: string; role: string; status: UserStatus; lastActive: string; initials: string };
 
@@ -15,15 +34,15 @@ export const companies: Company[] = [
 ];
 
 export const orders: Order[] = [
-  { id: 'DH-2841', companyId: 'fusa', product: 'Phân bón NPK 16-16-8', customer: 'HTX Nông nghiệp Bình Minh', amount: 128400000, status: 'Đã xác nhận', date: '2026-08-22', items: 80 },
-  { id: 'DH-2840', companyId: 'au-chau', product: 'Xi măng PCB40', customer: 'Công ty Xây dựng Đại Phát', amount: 82500000, status: 'Chờ duyệt', date: '2026-08-22', items: 140 },
-  { id: 'DH-2839', companyId: 'kim-chinh', product: 'Thức ăn hỗn hợp cho heo thịt', customer: 'Trang trại Hưng Thịnh', amount: 246300000, status: 'Đang xử lý', date: '2026-08-21', items: 210 },
-  { id: 'DH-2838', companyId: 'au-chau', product: 'Thép cuộn D10', customer: 'VLXD Minh Thành', amount: 457200000, status: 'Đã giao', date: '2026-08-21', items: 50 },
-  { id: 'DH-2837', companyId: 'kim-chinh', product: 'Gạo thơm ST25', customer: 'Nông sản Việt Xanh', amount: 46900000, status: 'Đã giao', date: '2026-08-20', items: 30 },
-  { id: 'DH-2836', companyId: 'fusa', product: 'Phân DAP 18-46-0', customer: 'Đại lý Vật tư Nông nghiệp Phú Mỹ', amount: 169800000, status: 'Đang xử lý', date: '2026-08-20', items: 180 },
-  { id: 'DH-2835', companyId: 'kim-chinh', product: 'Thức ăn hỗn hợp cho gà đẻ', customer: 'Trang trại An Khang', amount: 311500000, status: 'Chờ duyệt', date: '2026-08-19', items: 360 },
-  { id: 'DH-2834', companyId: 'au-chau', product: 'Gạch porcelain 600x600', customer: 'Công ty Xây dựng Tân Tiến', amount: 683000000, status: 'Đã xác nhận', date: '2026-08-19', items: 110 },
-  { id: 'DH-2833', companyId: 'fusa', product: 'Phân Urê hạt đục', customer: 'HTX Dịch vụ Nông nghiệp Thành Công', amount: 32800000, status: 'Đã giao', date: '2026-08-18', items: 20 },
+  { id: 'DH-2841', companyId: 'fusa', product: 'Phân bón NPK 16-16-8', customer: 'HTX Nông nghiệp Bình Minh', phone: '0913 245 678', source: 'Đại lý', items: 80, subtotal: 130000000, discount: 1600000, returned: 0, shippingFee: 1800000, status: 'Đã xác nhận', shippingStatus: 'Đang giao', warehouse: 'Kho Long An', affiliate: '—', date: '2026-08-22' },
+  { id: 'DH-2840', companyId: 'au-chau', product: 'Xi măng PCB40', customer: 'Công ty Xây dựng Đại Phát', phone: '0908 112 233', source: 'Website', items: 140, subtotal: 84000000, discount: 1500000, returned: 0, shippingFee: 2400000, status: 'Chờ duyệt', shippingStatus: 'Chưa giao', warehouse: 'Kho Bình Dương', affiliate: '—', date: '2026-08-22' },
+  { id: 'DH-2839', companyId: 'kim-chinh', product: 'Thức ăn hỗn hợp cho heo thịt', customer: 'Trang trại Hưng Thịnh', phone: '0977 654 321', source: 'Đại lý', items: 210, subtotal: 250000000, discount: 3700000, returned: 0, shippingFee: 3200000, status: 'Đang xử lý', shippingStatus: 'Đang giao', warehouse: 'Kho Tây Ninh', affiliate: 'CTV-102', date: '2026-08-21' },
+  { id: 'DH-2838', companyId: 'au-chau', product: 'Thép cuộn D10', customer: 'VLXD Minh Thành', phone: '0918 765 432', source: 'Điện thoại', items: 50, subtotal: 460000000, discount: 2800000, returned: 0, shippingFee: 4500000, status: 'Đã giao', shippingStatus: 'Đã giao', warehouse: 'Kho Bình Dương', affiliate: '—', date: '2026-08-21' },
+  { id: 'DH-2837', companyId: 'kim-chinh', product: 'Gạo thơm ST25', customer: 'Nông sản Việt Xanh', phone: '0932 556 789', source: 'Sàn TMĐT', items: 30, subtotal: 48000000, discount: 600000, returned: 500000, shippingFee: 650000, status: 'Đã giao', shippingStatus: 'Đã giao', warehouse: 'Kho Cần Thơ', affiliate: 'CTV-045', date: '2026-08-20' },
+  { id: 'DH-2836', companyId: 'fusa', product: 'Phân DAP 18-46-0', customer: 'Đại lý Vật tư Nông nghiệp Phú Mỹ', phone: '0909 334 556', source: 'Đại lý', items: 180, subtotal: 173000000, discount: 3200000, returned: 0, shippingFee: 2100000, status: 'Đang xử lý', shippingStatus: 'Giao thất bại', warehouse: 'Kho Long An', affiliate: '—', date: '2026-08-20' },
+  { id: 'DH-2835', companyId: 'kim-chinh', product: 'Thức ăn hỗn hợp cho gà đẻ', customer: 'Trang trại An Khang', phone: '0966 223 114', source: 'Website', items: 360, subtotal: 316000000, discount: 4500000, returned: 0, shippingFee: 3800000, status: 'Chờ duyệt', shippingStatus: 'Chưa giao', warehouse: 'Kho Tây Ninh', affiliate: 'CTV-102', date: '2026-08-19' },
+  { id: 'DH-2834', companyId: 'au-chau', product: 'Gạch porcelain 600x600', customer: 'Công ty Xây dựng Tân Tiến', phone: '0903 887 665', source: 'Điện thoại', items: 110, subtotal: 690000000, discount: 7000000, returned: 0, shippingFee: 5200000, status: 'Đã xác nhận', shippingStatus: 'Chưa giao', warehouse: 'Kho Đồng Nai', affiliate: '—', date: '2026-08-19' },
+  { id: 'DH-2833', companyId: 'fusa', product: 'Phân Urê hạt đục', customer: 'HTX Dịch vụ Nông nghiệp Thành Công', phone: '0915 448 220', source: 'Đại lý', items: 20, subtotal: 34000000, discount: 1200000, returned: 0, shippingFee: 480000, status: 'Đã giao', shippingStatus: 'Đã giao', warehouse: 'Kho Long An', affiliate: '—', date: '2026-08-18' },
 ];
 
 export const inventory: InventoryItem[] = [
@@ -40,10 +59,10 @@ export const inventory: InventoryItem[] = [
 
 export const users: EnterpriseUser[] = [
   { id: 'u1', name: 'Nguyễn Minh Anh', email: 'minhanh@fusa.vn', companyId: 'fusa', role: 'Quản lý công ty', status: 'Đang hoạt động', lastActive: '2026-08-22T08:42:00', initials: 'MA' },
-  { id: 'u2', name: 'Trần Bảo Ngọc', email: 'baongoc@au-chau.vn', companyId: 'au-chau', role: 'Kế toán', status: 'Đang hoạt động', lastActive: '2026-08-22T08:18:00', initials: 'BN' },
+  { id: 'u2', name: 'Trần Bảo Ngọc', email: 'baongoc@auchau.vn', companyId: 'au-chau', role: 'Kế toán', status: 'Đang hoạt động', lastActive: '2026-08-22T08:18:00', initials: 'BN' },
   { id: 'u3', name: 'Lê Hoàng Phúc', email: 'phuclh@kimchinh.vn', companyId: 'kim-chinh', role: 'Quản lý kho', status: 'Đang hoạt động', lastActive: '2026-08-21T16:28:00', initials: 'HP' },
   { id: 'u4', name: 'Phạm Khánh Linh', email: 'linhpk@fusa.vn', companyId: 'fusa', role: 'Nhân viên bán hàng', status: 'Tạm khóa', lastActive: '2026-08-19T10:12:00', initials: 'KL' },
-  { id: 'u5', name: 'Vũ Đức Long', email: 'longvd@au-chau.vn', companyId: 'au-chau', role: 'Nhân viên bán hàng', status: 'Đang hoạt động', lastActive: '2026-08-22T07:55:00', initials: 'ĐL' },
+  { id: 'u5', name: 'Vũ Đức Long', email: 'longvd@auchau.vn', companyId: 'au-chau', role: 'Nhân viên bán hàng', status: 'Đang hoạt động', lastActive: '2026-08-22T07:55:00', initials: 'ĐL' },
   { id: 'u6', name: 'Hoàng Thu Trang', email: 'tranght@kimchinh.vn', companyId: 'kim-chinh', role: 'Quản lý kho', status: 'Đang hoạt động', lastActive: '2026-08-21T15:40:00', initials: 'TT' },
 ];
 
@@ -56,3 +75,6 @@ export async function getWorkspaceData(companyId: string) {
 }
 
 export const getStockStatus = (item: InventoryItem): StockStatus => item.stock === 0 ? 'Hết hàng' : item.stock <= item.minimum ? 'Sắp hết' : 'Đủ hàng';
+
+// Doanh thu thuần = tiền hàng - giảm giá - tiền hàng trả lại.
+export const getOrderNetRevenue = (order: Order): number => order.subtotal - order.discount - order.returned;

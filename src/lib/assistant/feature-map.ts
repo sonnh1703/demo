@@ -61,17 +61,20 @@ export const FEATURE_MAP: FeatureMapEntry[] = [
     name: 'Đơn hàng',
     path: '/orders',
     description:
-      'Danh sách toàn bộ đơn hàng: mã đơn, mặt hàng, số lượng, khách hàng, công ty, ngày tạo, giá trị và trạng thái xử lý.',
+      'Danh sách chi tiết toàn bộ đơn hàng: mã đơn, ngày tạo, khách hàng, số điện thoại, nguồn đơn (Website, Điện thoại, Sàn TMĐT, Đại lý, Facebook/Zalo), công ty, kho xuất, số lượng, tiền hàng, giảm giá, tiền hàng trả lại, phí giao hàng, doanh thu thuần, trạng thái xử lý, trạng thái vận chuyển và mã giới thiệu (Aff).',
     actions: [
       'Bấm nút "Thêm đơn hàng" ở góc trên bên phải để tạo đơn mới.',
-      'Gõ vào ô tìm kiếm để tìm theo mã đơn, mặt hàng hoặc tên khách hàng.',
-      'Lọc theo trạng thái (Chờ duyệt, Đã xác nhận, Đang xử lý, Đã giao) hoặc theo ngày tạo.',
+      'Gõ vào ô tìm kiếm để tìm theo mã đơn, mặt hàng, tên khách hàng hoặc số điện thoại.',
+      'Lọc theo khoảng ngày tạo (chọn "từ ngày" và "đến ngày").',
+      'Lọc theo trạng thái xử lý (Chờ duyệt, Đã xác nhận, Đang xử lý, Đã giao).',
+      'Lọc theo trạng thái vận chuyển (Chưa giao, Đang giao, Đã giao, Giao thất bại, Hoàn hàng).',
       'Bấm biểu tượng bút chì trên một dòng để sửa đơn, biểu tượng thùng rác để xóa đơn đó.',
       'Bấm "Xuất dữ liệu" để tải danh sách đơn hàng.',
     ],
     faqs: [
       { question: 'Làm sao thêm đơn hàng mới?', answer: 'Vào trang Đơn hàng, bấm nút "Thêm đơn hàng" ở góc trên bên phải, điền thông tin rồi bấm "Thêm đơn hàng" để lưu.' },
       { question: 'Làm sao xem đơn hàng đang chờ duyệt?', answer: 'Vào trang Đơn hàng, ở bộ lọc trạng thái (biểu tượng phễu) chọn "Chờ duyệt".' },
+      { question: 'Làm sao xem đơn hàng trong một khoảng thời gian?', answer: 'Vào trang Đơn hàng, ở ô lọc ngày chọn "từ ngày" và "đến ngày" cần xem.' },
       { question: 'Làm sao sửa hoặc xóa một đơn hàng?', answer: 'Vào trang Đơn hàng, ở cuối dòng đơn hàng bấm biểu tượng bút chì để sửa, hoặc biểu tượng thùng rác để xóa.' },
     ],
   },
@@ -89,7 +92,7 @@ export const FEATURE_MAP: FeatureMapEntry[] = [
     ],
     faqs: [
       { question: 'Làm sao xem tồn kho?', answer: 'Ở menu bên trái chọn mục "Kho hàng", bảng sẽ hiển thị toàn bộ mặt hàng cùng số lượng đang tồn.' },
-      { question: 'Làm sao biết mặt hàng nào sắp hết?', answer: 'Vào trang Kho hàng rồi lọc tình trạng "Hết hàng", hoặc xem mục "Cần chú ý" ở trang Tổng quan.' },
+      { question: 'Làm sao biết mặt hàng nào sắp hết hoặc đã hết?', answer: 'Vào trang Kho hàng rồi lọc tình trạng "Hết hàng", hoặc xem mục "Cần chú ý" ở trang Tổng quan. Mặt hàng đã hết (tồn kho = 0) sẽ hiển thị số tồn màu đỏ trong bảng.' },
       { question: 'Làm sao thêm mặt hàng mới vào kho?', answer: 'Vào trang Kho hàng, bấm nút "Thêm mặt hàng" ở góc trên bên phải, điền thông tin rồi lưu lại.' },
     ],
   },

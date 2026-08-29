@@ -8,9 +8,10 @@ interface EntityModalProps {
   onClose: () => void;
   children: ReactNode;
   compact?: boolean;
+  wide?: boolean;
 }
 
-export function EntityModal({ open, title, description, onClose, children, compact = false }: EntityModalProps) {
+export function EntityModal({ open, title, description, onClose, children, compact = false, wide = false }: EntityModalProps) {
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const onCloseRef = useRef(onClose);
@@ -35,7 +36,7 @@ export function EntityModal({ open, title, description, onClose, children, compa
 
   if (!open) return null;
   return <div className="modal-overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
-    <div ref={panelRef} className={compact ? 'entity-modal modal-compact' : 'entity-modal'} role="dialog" aria-modal="true" aria-labelledby={titleId}>
+    <div ref={panelRef} className={`entity-modal${compact ? ' modal-compact' : ''}${wide ? ' modal-wide' : ''}`} role="dialog" aria-modal="true" aria-labelledby={titleId}>
       <div className="modal-header"><div><h2 id={titleId}>{title}</h2>{description && <p>{description}</p>}</div><button type="button" onClick={onClose} aria-label="Đóng"><X size={18} /></button></div>
       {children}
     </div>

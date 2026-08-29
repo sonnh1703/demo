@@ -1,5 +1,5 @@
 import { AlertTriangle, ArrowDownRight, ArrowUpRight, Boxes, ChevronDown, CircleCheck, Factory, Landmark, PackageCheck, ShoppingCart, TrendingUp, Users } from 'lucide-react';
-import { companies, getCompany, getStockStatus } from '../../lib/data';
+import { companies, getCompany, getOrderNetRevenue, getStockStatus } from '../../lib/data';
 import { formatCurrency } from '../../lib/utils';
 import { useAppStore } from '../../store/app-store';
 import { useWorkspaceData } from '../../hooks/use-workspace-data';
@@ -36,7 +36,7 @@ export function DashboardPage() {
   const scopedOrders = data?.orders ?? [];
   const scopedInventory = data?.inventory ?? [];
   const scopedUsers = data?.users ?? [];
-  const revenue = scopedOrders.reduce((total, order) => total + order.amount, 0);
+  const revenue = scopedOrders.reduce((total, order) => total + getOrderNetRevenue(order), 0);
   const inventoryValue = scopedInventory.reduce((total, item) => total + item.value, 0);
   const lowStock = scopedInventory.filter((item) => getStockStatus(item) !== 'Đủ hàng').length;
   const values = chartValues[companyId];
@@ -115,7 +115,7 @@ export function DashboardPage() {
           <div className="panel-title"><div><h2>Đơn hàng gần đây</h2></div><Button asChild variant="ghost" size="sm"><a href="/orders">Xem tất cả</a></Button></div>
           <div className="orders-list">
             <div className="recent-order recent-order-head"><span>Mã đơn</span><span>Giá trị</span><span>Trạng thái</span></div>
-            {scopedOrders.slice(0, 4).map((order) => <div className="recent-order" key={order.id}><strong>#{order.id}<small>{order.product}</small></strong><b>{formatCurrency(order.amount)}</b><Badge className={`status-${order.status.replaceAll(' ', '-').toLowerCase()}`}>{order.status}</Badge></div>)}
+            {scopedOrders.slice(0, 4).map((order) => <div className="recent-order" key={order.id}><strong>#{order.id}<small>{order.product}</small></strong><b>{formatCurrency(getOrderNetRevenue(order))}</b><Badge className={`status-${order.status.replaceAll(' ', '-').toLowerCase()}`}>{order.status}</Badge></div>)}
             {!isPending && scopedOrders.length === 0 && <div className="empty-mini">Chưa có đơn hàng trong phạm vi này.</div>}
           </div>
         </article>
